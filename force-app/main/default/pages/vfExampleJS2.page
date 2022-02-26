@@ -1,0 +1,37 @@
+<apex:page controller="CopySelectedDataFromTable">
+  <p> display data from a table and copy selected records to another table </p>
+  <script>
+        
+       function myFunction(input, textid){
+                  alert(textid);
+                  document.getElementById("{!$Component.fm1.selectedRadio}").value=textid;         
+                  passStateToController();                  
+        }
+        
+  </script>
+  
+   <apex:form id="fm1">
+   <apex:pageBlock id="pgBlk01">
+       <apex:pageBlockTable value="{!accWrapList}" var="ac">
+             <apex:column headerValue="#Radio">
+             <input type="radio" id="radio1" value="{!ac.checkbox}" onClick="myFunction(this,'{!ac.accRec.id}');"/>
+             </apex:column>
+             <apex:column headerValue="Account Name" value="{!ac.accRec.Name}"/>
+             apex:column headerValue="Account Phone" value="{!ac.accRec.Phone}"/>
+       </apex:pageBlockTable>
+          
+   </apex:pageBlock>
+   <apex:pageBlock id="pgBlk02">
+       <apex:pageBlockTable value="{!accWrapListSelected}" var="ab">
+             <apex:column headerValue="#Radio">
+             <input type="radio" id="radio2" value="{!ab.checkbox}"/>
+             </apex:column>
+             <apex:column headerValue="Account Name" value="{!ab.accRec.Name}" />
+             apex:column headerValue="Account Phone" value="{!ab.accRec.Phone}" />
+       </apex:pageBlockTable>
+          
+   </apex:pageBlock>
+          <apex:inputHidden id="selectedRadio" value="{!selected}"/>
+          <apex:actionFunction name="passStateToController" action="{!copyDataFromTable}" reRender="pgBlk02"/>
+   </apex:form>
+</apex:page>

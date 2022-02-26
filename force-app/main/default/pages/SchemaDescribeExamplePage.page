@@ -1,0 +1,8 @@
+<apex:page controller="SchemaDescribeExample">
+ <apex:form >
+  <Apex:selectList size="1">
+    <apex:selectOptions value="{!options}"></apex:selectOptions>
+   
+  </Apex:selectList>
+ </apex:form>
+</apex:page>

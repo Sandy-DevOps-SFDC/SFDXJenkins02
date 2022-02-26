@@ -1,0 +1,6 @@
+<apex:page controller="TestRedirectController">
+    <apex:form >
+        <apex:inputText value="{!inputValue}"/>
+        <apex:commandButton value="Reload Page" action="{!reloadPage}"/>
+    </apex:form>
+</apex:page>

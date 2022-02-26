@@ -1,0 +1,7 @@
+<apex:page controller="LtngAddressSearchValidation">
+  <apex:form >          
+         <apex:selectList value="{!options}" multiselect="false">
+            <apex:selectOptions value="{!options}"/>
+        </apex:selectList><p/>
+  </apex:form>                          
+</apex:page>

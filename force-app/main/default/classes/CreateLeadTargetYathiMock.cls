@@ -1,0 +1,10 @@
+@isTest
+global class CreateLeadTargetYathiMock implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest req) {
+        HttpResponse response= new HttpResponse();
+        response.setBody('<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="urn:partner.soap.sforce.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><loginResponse><result><metadataServerUrl>https://sunrun--MAJSTG.cs3.my.salesforce.com/services/Soap/m/22.0/00DQ000000EeL19</metadataServerUrl><passwordExpired>false</passwordExpired><sandbox>true</sandbox><serverUrl>https://sunrun--MAJSTG.cs3.my.salesforce.com/services/Soap/u/22.0/00DQ000000EeL19</serverUrl><sessionId>00DQ000000EeL19!AQ4AQLXjlqJSjw_WsYsf.I_HIdNLHiIu3oF09k_sHCc.SAEprlGtKtJBjc4ZSBPRkI5h_tmx5V0UZD19IxTxzgyjz75NiUai</sessionId><userId>005Q000000PPbljIAD</userId><userInfo><accessibilityMode>false</accessibilityMode><currencySymbol>$</currencySymbol><orgAttachmentFileSizeLimit>20971520</orgAttachmentFileSizeLimit><orgDefaultCurrencyIsoCode>USD</orgDefaultCurrencyIsoCode><orgDisallowHtmlAttachments>false</orgDisallowHtmlAttachments><orgHasPersonAccounts>false</orgHasPersonAccounts><organizationId>00DQ000000EeL19MAF</organizationId><organizationMultiCurrency>false</organizationMultiCurrency><organizationName>Sunrun</organizationName><profileId>00e32000000vYcuAAE</profileId><roleId>00E320000027UsqEAE</roleId><sessionSecondsValid>7200</sessionSecondsValid><userDefaultCurrencyIsoCode xsi:nil="true"/><userEmail>amergysolarapiuser@yopmail.com</userEmail><userFullName>amergysolar APIUser</userFullName><userId>005Q000000PPbljIAD</userId><userLanguage>en_US</userLanguage><userLocale>en_US</userLocale><userName>amergysolarapiuser@yopmail.com.majstg</userName><userTimeZone>America/Los_Angeles</userTimeZone><userType>Standard</userType><userUiSkin>Theme3</userUiSkin></userInfo></result></loginResponse></soapenv:Body></soapenv:Envelope>');
+        // Create a fake response.
+        // Set response values, and 
+        return response;
+    }
+}

@@ -1,0 +1,16 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page: StartChatting
+  <!-- End Default Content REMOVE THIS -->
+  <img id="liveagent_button_online_5736F0000000LH1" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('5736F0000000LH1')" src="https://liveagentorg1-developer-edition.ap4.force.com/resource/1493052459000/OnlineButton" /><img id="liveagent_button_offline_5736F0000000LH1" style="display: none; border: 0px none; " src="https://liveagentorg1-developer-edition.ap4.force.com/resource/1493052509000/OfflineButton" />
+<script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('5736F0000000LH1', document.getElementById('liveagent_button_online_5736F0000000LH1'));
+liveagent.showWhenOffline('5736F0000000LH1', document.getElementById('liveagent_button_offline_5736F0000000LH1'));
+});</script>
+<script type='text/javascript' src='https://c.la10.salesforceliveagent.com/content/g/js/39.0/deployment.js'></script>
+<script type='text/javascript'>
+liveagent.init('https://d.la10.salesforceliveagent.com/chat', '5726F0000000MSP', '00D6F000001uxxm');
+</script>
+</apex:page>

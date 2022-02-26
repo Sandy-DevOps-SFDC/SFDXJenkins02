@@ -1,0 +1,11 @@
+<aura:component >    
+    <aura:attribute name="fields" type="Account" /> 
+        <lightning:layout horizontalAlign="spread" multipleRows="true">
+            <lightning:layoutItem flexibility="grow" size="6" mediumDeviceSize="6" largeDeviceSize="6">
+                FirstName
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="grow" size="6" mediumDeviceSize="6" largeDeviceSize="6">
+                LastName
+            </lightning:layoutItem>
+        </lightning:layout> 
+</aura:component>

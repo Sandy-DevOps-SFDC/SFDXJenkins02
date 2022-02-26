@@ -1,0 +1,22 @@
+<apex:page controller="InputFieldClass">
+<script type="text/javascript">
+      var x;
+      function assignValue(data){
+         x=data.value;
+      }      
+      
+     function Callmefunc(){
+         check(x);
+      }          
+      
+</script>    
+      <apex:form id="form1">
+         <apex:actionFunction name="check" action="{!CreateAccount}" rerender="">
+                    <apex:param name="paramName" value=""/>
+         </apex:actionFunction>
+         <apex:pageBlock >
+            <apex:inputField value="{!acc.Active__c}" id="check" onchange="assignValue(this);"/>
+         </apex:pageBlock>
+         <apex:commandButton value="CreateAccount" onclick="Callmefunc(); return false;"/>
+      </apex:form>
+</apex:page>

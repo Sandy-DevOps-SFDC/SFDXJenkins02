@@ -1,0 +1,18 @@
+<apex:page controller="ActionSupportParamDemoController">
+<apex:form >
+    <apex:repeat value="{!accounts}" var="account">
+        <!--<apex:inputCheckbox value="{!account.IsActive__c}">-->
+            <apex:actionSupport event="onchange"
+                                action="{!handleAccountCheckboxChange}"
+                                reRender="ResultPanel">
+                <apex:param id="account" name="accountId" value="{!account.Id}"
+                            assignTo="{!targetAccountId}"/>
+            </apex:actionSupport>
+       <!-- </apex:inputCheckbox>-->
+        {!account.Name}
+    </apex:repeat>
+</apex:form>
+<apex:outputPanel id="ResultPanel">
+    Selected: {!selectedAccountId}
+</apex:outputPanel>
+</apex:page>

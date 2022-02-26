@@ -1,0 +1,26 @@
+<apex:page controller="FindAllFieldReferences">
+<apex:form >
+      <apex:selectList value="{!choosenObject}" size="1">
+              <apex:selectoptions value="{!objects}"/>
+      </apex:selectList>      
+      <apex:selectList value="{!choosenField}" size="1" id="fieldBlock" rendered="{!IF(displayFieldDropdown==true,true,false)}">
+              <apex:selectoptions value="{!fieldNames}"/>
+      </apex:selectList>
+      <apex:selectList value="{!choosenType}" size="1" id="fieldUsage" rendered="{!IF(displayFieldUsage==true,true,false)}">
+              <apex:selectoptions value="{!fieldUsageType}"/>
+      </apex:selectList>
+      
+      <apex:commandButton value="GetFields" action="{!showFields}"/>
+      <apex:commandButton value="GetFieldUsage" action="{!showFieldUsage}"/>
+      <apex:pageBlock >
+         
+         <apex:repeat value="{!keyValues}" var="key">
+         <apex:pageBlockTable value="{!key}" var="a">
+            <apex:column headerValue="Field Name" value="{!a}"/><!-- key --->
+            <apex:column headerValue="Class Name" value="{!usageMap[a]}"/> <!-- Value--->
+         </apex:pageBlockTable>
+        </apex:repeat>
+        
+      </apex:pageBlock>
+</apex:form>        
+</apex:page>

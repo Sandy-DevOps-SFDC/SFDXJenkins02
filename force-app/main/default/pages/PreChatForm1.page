@@ -1,0 +1,107 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false">
+<apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'bootstrap-3.3.7-dist/css/bootstrap.min.css')}"/>
+<!--link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />-->
+<!-- This script takes the endpoint URL parameter passed from the deployment page and makes it the action for the form -->
+<apex:pageMessages />
+<script type='text/javascript'>
+(function() {
+function handlePageLoad() {
+var endpointMatcher = new RegExp("[\\?\\&]endpoint=([^&#]*)");
+
+document.getElementById('prechatForm').setAttribute('action',
+decodeURIComponent(endpointMatcher.exec(document.location.search)[1]));
+} if (window.addEventListener) {
+window.addEventListener('load', handlePageLoad, false);
+} else { window.attachEvent('onload', handlePageLoad, false);
+}})();
+</script>
+
+
+
+<!--<div class="divTag1">-->
+<div class="row divTag1" style="background-color:white;height:20px;"></div>
+<div class="row divTag1" style="background-color:#580f8b;height:70px;">
+     <apex:image url="{!URLFOR($Resource.NYULogos,'NYULogos/Images/NYULogo.jpg')}" height="70px" style="margin-left:50px;"/>
+</div>
+<!--<div class="row divTag1">   
+   <apex:image url="{!URLFOR($Resource.NYULogos,'NYULogos/Images/NewYork.jpg')}" height="400px" styleclass="divTag1"/>
+</div>-->
+<!--</div>-->
+<br/>
+<div class="container">
+<!-- Form that gathers information from the chat visitor and sets the values to Live Agent Custom Details used later in the example -->
+<form class="form-horizontal" method='post' id='prechatForm' onsubmit="return validateForm();">
+  <div class="row">
+  <div class="col-sm-2 col-md-2 col-lg-2"></div>
+  <div class="col-sm-2 col-md-2 col-lg-2">What are you looking for today? <font size="5" color="red">*</font></div>
+    <div class="col-sm-4 col-md-4 col-lg-4">            
+                    <select class="form-control" id="SelectedValue" required="true">
+                              <option value="0" disabled="disabled" selected="selected">Please select an option</option>
+                              <option value="1">Help finding the right doctor</option>
+                              <option value="2">Find me an appointment</option>
+                              <option value="3">Find location information</option>
+                              <option value="4">Other</option>
+                    </select><br/><font size="4" color="red"><span id="errfn"></span></font>
+            <div class="text-center"> 
+             <button type="submit" class="btn btn-primary btn-lg" id='prechat_submit' >Chat Now</button><!--onclick="setName()"-->
+            </div>  
+    </div>
+  <div class="col-sm-4 col-md-4 col-lg-4"></div>    
+</div>  
+    <!-- Used to set the visitor's name for the agent in the Console -->
+    <input type="hidden" name="liveagent.prechat.name" id="prechat_field_name" />
+    <input type="hidden" name='liveagent.prechat:IssueType' value="" id="inputHiddenID1"/>
+    <input type="hidden" name="liveagent.prechat.save:IssueType" value="Issue_Type__c"/>
+    
+
+
+</form>
+</div>
+
+<!-- Set the visitor's name for the agent in the Console to first and last name provided by the customer -->
+<script id="myScript" data-testme="{!$Label.PreChatErrorMessage}"></script>
+<script type="text/javascript">
+      function GetSelectedItem(el)
+        {
+            var e = document.getElementById(el);
+            var strSel = e.options[e.selectedIndex].text;
+            document.getElementById('inputHiddenID1').value=strSel;
+        }
+   /*function setName() {
+    document.getElementById("prechat_field_name").value =  
+        document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
+    }*/
+function validateForm() {
+   
+   var selectedanswer=document.getElementById("SelectedValue").selectedIndex;     
+   var scriptElement = document.getElementById('myScript');
+   var label = scriptElement.getAttribute("data-testme");
+   if(selectedanswer==0){
+      document.getElementById('errfn').innerHTML=label;
+      return false;
+   }
+   else{
+         document.getElementById('errfn').innerHTML='';
+         GetSelectedItem('SelectedValue');
+    }
+    
+    
+   
+}
+</script>
+
+<style type="text/css">
+        #prechat_submit{
+           background:#580f8b;
+           color:white;
+        }
+        b {
+          color:#075B96;
+        }
+        .divTag1{   
+            padding:0;
+            margin:0;
+            width: 100%;
+        }
+</style>
+</apex:page>
