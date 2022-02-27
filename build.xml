@@ -8,14 +8,14 @@
 </taskdef>
 <macrodef name="gitDiff">
 		<sequential>
-			<exec executable="git" outputproperty="git.diff">
+			<exec executable="git.exe" outputproperty="git.diff">
 				<arg value="diff" />
 				<arg value="--pretty=format:" />
 				<arg value="--name-only" />
 				<arg value="${env.GIT_COMMIT}" />
 				<arg value="${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}" />
 			</exec>
-			<echo>${git.diff}</echo>
+			<echo>difference : ${git.diff}</echo>
 		</sequential>
 </macrodef>
 <target name="diffBuilderWithGitCommit">
@@ -24,7 +24,6 @@
 		<echo>Current GIT Commit : ${env.GIT_COMMIT}</echo>
 		<echo>Previous Known Successful GIT Commit : ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}</echo>
 		<gitDiff/>
-	        <echo><gitDiff/></echo>
 		<for list="${git.diff}" param="currentDiff" delimiter="${line.separator}">
 			<sequential>
 				<if>
