@@ -1,3 +1,4 @@
+/*SANTOSH*/
 public class AccountDeleteWrapperCLs{
 public List<AccountRecordCls> accWrapperRecordList {get;set;}
 
