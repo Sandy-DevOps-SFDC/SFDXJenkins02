@@ -1,4 +1,4 @@
-/*SANTOSH Mohanty 12*/
+/*SANTOSH Mohanty 123*/
 public class AccountDeleteWrapperCLs{
 public List<AccountRecordCls> accWrapperRecordList {get;set;}
 
