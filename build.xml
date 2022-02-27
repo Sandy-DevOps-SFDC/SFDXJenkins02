@@ -1,7 +1,6 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 <property file="build.properties"/>
 <property environment="env"/>
-
 <taskdef resource="net/sf/antcontrib/antlib.xml">
 		<classpath>
 			<pathelement location="lib/ant-contrib-1.0b3.jar"/>
@@ -19,7 +18,6 @@
 			<echo>${git.diff}</echo>
 		</sequential>
 </macrodef>
-
 <target name="diffBuilderWithGitCommit">
 		<delete dir="deploy-sf"/>
 		<mkdir dir="deploy-sf"/>
