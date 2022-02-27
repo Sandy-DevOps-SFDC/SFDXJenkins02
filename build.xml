@@ -24,6 +24,7 @@
 		<echo>Current GIT Commit : ${env.GIT_COMMIT}</echo>
 		<echo>Previous Known Successful GIT Commit : ${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}</echo>
 		<gitDiff/>
+	        <echo><gitDiff/></echo>
 		<for list="${git.diff}" param="currentDiff" delimiter="${line.separator}">
 			<sequential>
 				<if>
