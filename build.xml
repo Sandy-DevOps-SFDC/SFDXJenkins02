@@ -11,7 +11,7 @@
         <exec executable="git" outputproperty="git.diff">
             <arg value="diff" />
             <arg value="${env.GIT_COMMIT}" />
-            <arg value="41f8e35c2bddfb26a8a8a77d6325a67c5082535d" />
+            <arg value="bf5da6a2f6bc2a5124a1f26b59eb228b5d27c7ae" />
         </exec>
         <echo message="Git difference is ${git.diff}."/>
     </sequential>
