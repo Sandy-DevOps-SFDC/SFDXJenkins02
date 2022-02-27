@@ -8,7 +8,7 @@
 </taskdef>
 <macrodef name="gitDiff">
     <sequential>
-        <exec executable="git" outputproperty="git.diff">
+        <exec executable="C:\Program Files\Git\bin\git.exe" outputproperty="git.diff">
             <arg value="diff" />
             <arg value="${env.GIT_COMMIT}" />
             <arg value="${env.GIT_PREVIOUS_SUCCESSFUL_COMMIT}" />
